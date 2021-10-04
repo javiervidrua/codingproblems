@@ -40,9 +40,14 @@ app.post("/api/users", (req, res)=>{
   User.count({"username": newUser.username}, (err, count)=>{
     if(err)
       return res.json({"error": err});
-    if(count > 0)
-      return res.json({"error": "username already exists"});
-    
+    if(count > 0){
+      User.findOne({"username": newUser.username}, (err, user)=>{
+        if(err)
+          return res.json({"error": err});
+        return res.json({"error": "username already exists with _id: " + user._id});
+      });
+    }
+
     else{
       // Save the document
       newUser.save((err, data)=>{
