@@ -4,13 +4,22 @@ using namespace std;
 
 class TheClass{
     public:
+        // C++ feature
+        // Constructor
         TheClass(){}
+        // C++ feature
+        // Constructor overloading
         TheClass(int value)
         // C++ feature
         // Member initialization list (: operator)
         // Good practice instead of assigning the values in the body of the constructor, as this works for const variables too
         : value(value)
         {
+        }
+        // C++ feature
+        // Destructor
+        ~TheClass(){
+            this->value = 0;
         }
 
         // C++ feature
