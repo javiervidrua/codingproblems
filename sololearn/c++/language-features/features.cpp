@@ -23,6 +23,20 @@ class TheClass{
         }
 
         // C++ feature
+        // virtual functions (allows polymorphism to use pointers to the base class to call the derived classes' functions)
+        // The derived classes will override the virtual function and have a separate implementation
+        // A class is polymorphic if it has a virtual function
+        virtual void getValue(){
+            return value;
+        }
+
+        // C++ feature
+        // Pure virtual functions
+        // If the function is not defined in the derived class, the file does not compile
+        // The classes that have pure virtual functions are called ABSTRACT CLASSES, and you cannot create an object of them
+        virtual void pureVirtualFunction() = 0;
+
+        // C++ feature
         // operator overloading with the operator keyword
         // This function will get called when doing + operations on instances of the class TheClass
         TheClass operator+(TheClass &theclass){
@@ -46,3 +60,9 @@ void externalFunction(TheClass &theclass){
     // Automatic indirection: you do class.variable instead of (*class).variable or class->variable
     cout << theclass.value << endl;
 }
+
+// C++ feature
+// Inheritance
+class TheClassTheSecond : public TheClass{}
+class TheClassTheSecond2 : protected TheClass{}
+class TheClassTheSecond3 : protected TheClass{}
