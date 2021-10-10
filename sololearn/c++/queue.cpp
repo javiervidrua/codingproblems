@@ -1,17 +1,18 @@
 #include <iostream>
 using namespace std;
 
+template <class T>
 class Queue {
 	protected:
 	int size;
-	int* queue;
+	T* queue;
 
 	public:
 	Queue() {
 		size = 0;
-		queue = new int[100];
+		queue = new T[100];
 	}
-	void add(int data) { 
+	void add(T data) { 
 		queue[size] = data;
 		size++;
 	}
@@ -69,12 +70,12 @@ class Queue2: public Queue{
 };
 
 int main() {
-	Queue q1;
+	Queue<int> q1;
 	q1.add(42); q1.add(2); q1.add(8);  q1.add(1);
-    q1.print();
+	q1.print();
 
-	Queue2 q2;
-	q2.add(3); q2.add(66); q2.add(128);  q2.add(5);q2.add(111);q2.add(77890);
+	Queue<string> q2;
+	q2.add("Dave"); q2.add("John"); q2.add("Amy");
 	q2.print();
 
 	return 0;
